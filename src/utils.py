@@ -25,7 +25,7 @@ def read_data(dataset: Literal["train", "test"] = "train", data_dir: str = "./da
     files = os.listdir(os.path.join(data_dir, dataset))
     data = dict()
     for f in files:
-        raw_df = _read_one(f, "train")
+        raw_df = _read_one(f, dataset)
         data[f] = {
             "id": int(raw_df["trial number"].unique()[0]),
             "subject": raw_df["name"].unique()[0],
